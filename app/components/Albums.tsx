@@ -9,9 +9,10 @@ async function Home() {
             {albums.map((album: {id: number, title: string}) => (
                 <div
                     key = {album.id}
-                    className="bg-white shadow-md rounded-lg p-4 transition">
-                <h3 className="text-lg font-bold mb-2">{album.title}</h3>
-                <p className="text-gray-600">Album ID: {album.id}</p>
+                    className="bg-white shadow-md rounded-lg p-8 m-4"
+                >
+                <h3 className="text-lg font-bold mb-2 text-black">{album.title}</h3>
+                <p className="text-black">Album ID: {album.id}</p>
             </div>
             ))}
         </div>
