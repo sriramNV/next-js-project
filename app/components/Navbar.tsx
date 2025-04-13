@@ -1,18 +1,49 @@
+import { auth, signOut, signIn } from '@/auth'
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
-const Navbar = ( {children} : {children: React.ReactNode}) => {
+const Navbar = async () => {
+  const session = await auth();
+
   return (
-    <>
-        <div className='flex flex-col items-center justify-between p-24'>
-            <div className='flex flex-row items-center justify-between w-full max-w-5xl'>
-                <div className='flex flex-col items-center justify-center'>
-                    <h1 className='text-2xl font-bold'>Navbar</h1>
-                    <p className='text-sm'>This is the navbar</p>
-                    {children}
-                </div>
-            </div>
+    <div className='px-5 py-3 bg-white shadow-sm font-work-sans'>
+      <nav className='flex justify-between items-center'>
+        <Link href='/'>
+          <Image src = '/logo.png' alt='logo' width={144} height={32}/>
+        </Link>
+
+        <div className='flex items-center gap-5 text-black'>
+          {session && session?.user ? (
+            <>
+              <Link href="/startup/create">
+                <span>Create</span>
+              </Link>
+              <form action={async () => {
+                "use server";
+                await signOut({redirectTo : "/"});
+              }}>
+                <button type='submit'>Log Out</button>
+              </form>
+
+              <Link href={`/user/${session?.id}`}>
+                <span>{session?.user?.name}</span>
+              </Link>
+            </>
+          ):(
+            <form action={async () => {
+              "use server";
+              await signIn('github')}
+              }>
+              <button type='submit'>Log In</button>
+            
+            </form>
+            
+
+          )}
         </div>
-    </>
+      </nav>
+    </div>
   )
 }
 
