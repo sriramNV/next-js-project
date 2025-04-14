@@ -31,7 +31,7 @@ const Navbar = async () => {
               </Link>
             </>
           ):(
-            <form action={async () => {
+            <form action={async () => { 
               "use server";
               await signIn('github')} 
               }>
