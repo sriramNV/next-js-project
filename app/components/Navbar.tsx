@@ -25,8 +25,9 @@ const Navbar = async () => {
                   }}>
                     <button type='submit'>Sign Out</button>
                 </form>
-
-                <Link href={`/user/${session?.id}`}>
+                  
+                  {/* below needs to be updated when schema is created in sanity  */}
+                <Link href={`/user/${session?.id}`}>     
                   <span>{session?.user?.name}</span>
                 </Link>
               </>
