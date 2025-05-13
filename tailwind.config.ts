@@ -45,8 +45,10 @@ const config: Config = {
             },
         },
     },
-    // eslint-disable-next-line 
+	// eslint-disable-next-line 
     plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 
 export default config;
+
+    

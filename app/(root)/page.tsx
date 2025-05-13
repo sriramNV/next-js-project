@@ -1,8 +1,15 @@
 
 export default function Home() {
   return (
-    <h1 className="heading">
-      this it the Homepage or also is a hero section which is under development
-    </h1>
-      );
+    <>
+      <section className="pink_container">
+        <h1 className="heading">
+          Pitch your StartUp, <br /> Connect with Entrepreneurs.
+        </h1>
+        <p className="sub-heading !max-w-3xl">
+          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
+        </p>
+      </section>      
+    </>
+  );
 }
